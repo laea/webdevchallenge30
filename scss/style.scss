@@ -1,0 +1,390 @@
+@import "settings";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+    background-color: $color-bg;
+
+}
+.container {
+
+}
+
+.header {
+  position: relative;
+  display: block;
+    &__para {
+      position: absolute;
+      font-family: "Verdiana", Sans-serif;
+      margin: 42% 15% 10% 50%;
+      font-size: 1.5vw;
+      text-align: right;
+      opacity: 0.6;
+    }
+    &__img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+}
+
+.nav {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: white;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    text-align: center;
+    padding-top: 1.5%;
+  &__ul {
+  li {
+    letter-spacing: 6px;
+    padding: 2% 0.5% 3% 2%;
+    text-transform: uppercase;
+    list-style-type: none;
+    display: inline-flex;
+    justify-content: center;
+    a {
+      display:block;
+      text-decoration: none;
+      text-align: center;
+      font-family: $font;
+      color: black;
+      font-size: 9px;
+      &:hover {
+        color: yellow;
+        }
+      }
+    }
+    .li__main {
+      font-size:24px;
+      align-self:center;
+    }
+  }
+}
+.show-menu {
+    font-size: 5vw;
+    font-family: $font;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+input[type=checkbox]{
+    display: none;
+}
+input[type=checkbox]:checked ~ .nav__ul{
+    display: block;
+}
+@media screen and (max-width: 768px) {
+  .header {
+    display: block;
+    &__para{
+      font-size: 2vw;
+      margin-right: 3%;
+    }
+  }
+  .show-menu {
+    display:block;
+}
+  .nav {
+          height:100%;
+    &__ul {
+        display: none;
+        margin: 0;
+        padding: 0;
+        .li__main {
+          font-size:4vw;
+        }
+        height:100%;
+        li {
+          display: flex;
+          padding: 2%;
+          a {
+            font-size:2vw;
+            padding: 1%;
+          }
+        }
+      }
+   }
+}
+.row1 {
+  width: 100%;
+  height: auto;
+
+  &__div {
+    background: white;
+    margin: 10% 20% 10% 20%;
+  }
+  &__title {
+    text-align: center;
+    font-family: $font;
+    font-size: 2vw;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding-top: 13%;
+    opacity: 0.6;
+  }
+  &__para {
+    font-family: $font;
+    font-size: 1.2vw;
+    text-align: left;
+    line-height: 130%;
+    padding: 5% 10% 0 10%;
+    opacity: 0.8;
+    margin-left: 7%;
+  }
+  &__button {
+    width: auto;
+    text-align: center;
+    padding: 9%;
+    padding-bottom: 16%;
+    a {
+      text-decoration: none;
+      color: $color-font;
+      font-weight: bold;
+      font-size: 1.4vw;
+      border: solid 0.2vw #524B4B;
+      padding: 2%;
+
+      &:hover {
+        color: yellow;
+        border: solid 0.2vw yellow;
+      }
+    }
+  }
+}
+.gallery {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  a {
+    width: 33%;
+    height: 33%;
+  }
+  &__img {
+  width: 100%;
+  display: block;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    a{ width: 100%;}
+  }
+}
+.row2{
+  &__para {
+    color: gray;
+    font-family: $font;
+    text-align: center;
+    font-size: 2vw;
+    padding: 10% 25% 10% 25%;
+    line-height: 130%;
+    margin: 0 4% 0 4%;
+  }
+}
+.row3 {
+  display: flex;
+  width: 100%;
+  &__div1 {
+    width: 50%;
+  }
+  &__img {
+    display: block;
+    max-width:100%;
+  }
+  &__div2 {
+    width: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__div3 {
+    margin: 2%;
+    margin-right: 56%;
+    padding-left:13%;
+    line-height: 110%;
+  }
+  &__title {
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: $color-font;
+    font-family: $font;
+    font-size: 1vw;
+  }
+  &__para {
+    color: $color-font;
+    font-family: $font;
+    font-size: 0.7vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .row3 {
+    display: flex;
+    flex-direction: column;
+    &__div1 {
+      width: 100%;
+    }
+    &__img {
+      display: block;
+      width: 100%;
+    }
+    &__div2 {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    }
+    &__div3 {
+      margin: 3%;
+      padding: 0;
+    }
+    &__title {
+      font-size: 2vw;
+    }
+    &__para {
+      font-size: 1.8vw;
+    }
+  }
+}
+.row4 {
+  display: flex;
+  justify-content: center;
+  &__div {
+    background: white;
+    width: 20%;
+    height: auto;
+    margin: 10% 1% 10% 1%;
+    }
+  &__title {
+    font-weight: bold;
+    text-align: center;
+    margin: 8% 20% 8% 20%;
+  }
+  &__para {
+    text-align: center;
+    margin: 8% 18% 8% 19%;
+    color: $color-font;
+  }
+  &__button {
+    text-align: center;
+    margin: 8%;
+    a {
+      color:#99E2A5;
+       &:hover {
+         color: yellow;
+       }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .row4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__div {
+      height: 20%;
+      width: auto;
+      margin: 0;
+    }
+  }
+}
+.row5 {
+  background: #353535;
+  width: 100%;
+  display: flex;
+  &__div1{
+    width: 50%;
+  }
+  &__div2 {
+    width: 50%;
+  }
+  &__para {
+    color: white;
+    text-align: left;
+    font-family: $font;
+    line-height: 150%;
+    margin: 10% 30% 10% 30%;
+
+  }
+  &__map {
+  width: 62%;
+  height: 100%;
+  }
+  &__span {
+    font-weight: bold;
+  }
+}
+@media screen and (max-width: 768px) {
+  .row5 {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    &__div1 {
+      width: 100%;
+    }
+    &__div2 {
+      width: 100%;
+
+    }
+    &__map {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}
+.footer {
+  width: 100%;
+  display: flex;
+  &__div1 {
+    width: 50%;
+    margin: 3% 10% 3% 14.5%;
+  }
+  &__icon {
+    color: #353535;
+    margin: 1%;
+    &:visited {
+      color: #353535;
+    }
+  }
+  &__div2 {
+    margin: 3% 1% 0 0;
+  }
+  &__para {
+    font-family: $font;
+    color: $color-font;
+  }
+}
+.fa-twitter{
+  &:hover {
+    color: #4ab3f4;
+  }
+}
+.fa-facebook-official {
+  &:hover {
+    color: #4267b2;
+  }
+}
+.fa-instagram {
+  &:hover {
+    color: #da3073;
+  }
+}
+.fa-youtube-play {
+  &:hover {
+    color: red;
+  }
+}

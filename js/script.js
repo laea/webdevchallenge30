@@ -1,1 +1,8 @@
-function myMap(){var e={center:new google.maps.LatLng(52.237049,21.017532),zoom:10,mapTypeId:google.maps.MapTypeId.ROADMAP};new google.maps.Map(document.getElementById("map"),e)}console.log("plugins");
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(52.237049, 21.017532),
+    zoom: 10,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+}
