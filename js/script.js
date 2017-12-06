@@ -25,6 +25,10 @@ function menu() {
   event.stopPropagation();
 }
 function delMenu() {
+    if(window.matchMedia("(max-width: 768px)").matches) {
   document.querySelector('ul.nav__list').style.display = "none";
+  
+  }
 }
+
 document.querySelector('body').addEventListener("click", delMenu);
