@@ -6,6 +6,7 @@
 }
 body {
     background-color: $color-bg;
+    font-family: $font;
 
 }
 .container {
@@ -17,7 +18,6 @@ body {
   display: block;
     &__para {
       position: absolute;
-      font-family: "Verdiana", Sans-serif;
       margin: 42% 15% 10% 50%;
       font-size: 1.5vw;
       text-align: right;
@@ -33,14 +33,24 @@ body {
 .nav {
     position: absolute;
     width: 100%;
-    height: 20%;
     background: white;
     top: 0;
     left: 0;
     opacity: 0.6;
     text-align: center;
     padding-top: 1.5%;
-  &__ul {
+    transition: 0.5s;
+    i {
+      display: none;
+    }
+  &__fixed {
+    position: fixed;
+    opacity: 1;
+    height: 15%;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0,0,0,.5)
+  }
+  &__list {
   li {
     letter-spacing: 6px;
     padding: 2% 0.5% 3% 2%;
@@ -52,11 +62,11 @@ body {
       display:block;
       text-decoration: none;
       text-align: center;
-      font-family: $font;
       color: black;
       font-size: 9px;
       &:hover {
-        color: yellow;
+        color: red;
+        transition: 0.3s;
         }
       }
     }
@@ -66,22 +76,8 @@ body {
     }
   }
 }
-.show-menu {
-    font-size: 5vw;
-    font-family: $font;
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    color: black;
-    text-align: center;
-    padding: 10px 0;
-    display: none;
-}
-input[type=checkbox]{
-    display: none;
-}
-input[type=checkbox]:checked ~ .nav__ul{
-    display: block;
-}
+
+
 @media screen and (max-width: 768px) {
   .header {
     display: block;
@@ -90,13 +86,21 @@ input[type=checkbox]:checked ~ .nav__ul{
       margin-right: 3%;
     }
   }
-  .show-menu {
-    display:block;
-}
+
   .nav {
-          height:100%;
-    &__ul {
-        display: none;
+    height: auto;
+    opacity: 1;
+    &__fixed {
+      height: 7%;
+    }
+    i {
+      display: flex;
+      margin-left: 10px;
+      width: 4%;
+      }
+
+    &__list{
+      display: block;
         margin: 0;
         padding: 0;
         .li__main {
@@ -106,15 +110,18 @@ input[type=checkbox]:checked ~ .nav__ul{
         li {
           display: flex;
           padding: 2%;
+          background: white;
+          letter-spacing: 0;
+
           a {
-            font-size:2vw;
+            font-size:3vw;
             padding: 1%;
           }
         }
       }
    }
-}
-.row1 {
+   }
+.about {
   width: 100%;
   height: auto;
 
@@ -124,23 +131,22 @@ input[type=checkbox]:checked ~ .nav__ul{
   }
   &__title {
     text-align: center;
-    font-family: $font;
     font-size: 2vw;
     text-transform: uppercase;
     font-weight: 100;
+    color: $color-font;
     padding-top: 13%;
-    opacity: 0.6;
+
   }
   &__para {
-    font-family: $font;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     text-align: left;
     line-height: 130%;
     padding: 5% 10% 0 10%;
-    opacity: 0.8;
+    color: $color-font;
     margin-left: 7%;
   }
-  &__button {
+  &__link {
     width: auto;
     text-align: center;
     padding: 9%;
@@ -154,8 +160,28 @@ input[type=checkbox]:checked ~ .nav__ul{
       padding: 2%;
 
       &:hover {
-        color: yellow;
-        border: solid 0.2vw yellow;
+        color: red;
+        transition: 0.3s;
+        border: solid 0.2vw red;
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .about {
+  &__title {
+    font-size: 3vw;
+    }
+  &__para {
+    font-size: 3vw;
+    }
+  &__link {
+    a {
+      font-size: 3vw;
+      border: solid 0.5vw #524B4B;
+        &:hover {
+          border: solid 0.5vw red;
+        }
       }
     }
   }
@@ -185,10 +211,9 @@ input[type=checkbox]:checked ~ .nav__ul{
     a{ width: 100%;}
   }
 }
-.row2{
+.paragraph{
   &__para {
     color: gray;
-    font-family: $font;
     text-align: center;
     font-size: 2vw;
     padding: 10% 25% 10% 25%;
@@ -196,10 +221,10 @@ input[type=checkbox]:checked ~ .nav__ul{
     margin: 0 4% 0 4%;
   }
 }
-.row3 {
+.description {
   display: flex;
   width: 100%;
-  &__div1 {
+  &__image {
     width: 50%;
   }
   &__img {
@@ -223,20 +248,18 @@ input[type=checkbox]:checked ~ .nav__ul{
     font-weight: bold;
     letter-spacing: 5px;
     color: $color-font;
-    font-family: $font;
     font-size: 1vw;
   }
   &__para {
     color: $color-font;
-    font-family: $font;
     font-size: 0.7vw;
   }
 }
 @media screen and (max-width: 768px) {
-  .row3 {
+  .description {
     display: flex;
     flex-direction: column;
-    &__div1 {
+    &__image {
       width: 100%;
     }
     &__img {
@@ -260,7 +283,7 @@ input[type=checkbox]:checked ~ .nav__ul{
     }
   }
 }
-.row4 {
+.article {
   display: flex;
   justify-content: center;
   &__div {
@@ -279,19 +302,20 @@ input[type=checkbox]:checked ~ .nav__ul{
     margin: 8% 18% 8% 19%;
     color: $color-font;
   }
-  &__button {
+  &__link {
     text-align: center;
     margin: 8%;
     a {
       color:#99E2A5;
        &:hover {
-         color: yellow;
+         color: red;
+         transition: 0.3s;
        }
     }
   }
 }
 @media screen and (max-width: 768px) {
-  .row4 {
+  .article {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -302,14 +326,14 @@ input[type=checkbox]:checked ~ .nav__ul{
     }
   }
 }
-.row5 {
+.contact {
   background: #353535;
   width: 100%;
   display: flex;
-  &__div1{
+  &__paragraph{
     width: 50%;
   }
-  &__div2 {
+  &__maps {
     width: 50%;
   }
   &__para {
@@ -327,18 +351,29 @@ input[type=checkbox]:checked ~ .nav__ul{
   &__span {
     font-weight: bold;
   }
+  &__link {
+    color: white;
+    t
+    &:hover {
+      color: red;
+      transition: 0.3s;
+    }
+  }
+
 }
 @media screen and (max-width: 768px) {
-  .row5 {
+  .contact {
     display: flex;
     flex-direction: column;
     height: 100%;
-    &__div1 {
+    &__paragraph {
       width: 100%;
     }
-    &__div2 {
+    &__maps {
       width: 100%;
-
+    }
+    &__para {
+      margin: 10%;
     }
     &__map {
       width: 100%;
@@ -349,7 +384,7 @@ input[type=checkbox]:checked ~ .nav__ul{
 .footer {
   width: 100%;
   display: flex;
-  &__div1 {
+  &__icons{
     width: 50%;
     margin: 3% 10% 3% 14.5%;
   }
@@ -360,12 +395,9 @@ input[type=checkbox]:checked ~ .nav__ul{
       color: #353535;
     }
   }
-  &__div2 {
-    margin: 3% 1% 0 0;
-  }
   &__para {
-    font-family: $font;
     color: $color-font;
+      margin: 3% 1% 0 0;
   }
 }
 .fa-twitter{
@@ -386,5 +418,18 @@ input[type=checkbox]:checked ~ .nav__ul{
 .fa-youtube-play {
   &:hover {
     color: red;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer {
+
+    &__icons {
+      margin: 3% 5% 3% 4.5%;
+    }
+    &__para {
+      text-align:right;
+
+      margin:3% 1% 0 0;
+    }
   }
 }
